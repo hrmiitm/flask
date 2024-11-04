@@ -1,1 +1,149 @@
-<h1>Welcome Flask Learning</h1>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap Sidebar Example</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+      /* Sidebar styling */
+      #sidebar {
+        width: 250px;
+        height: 100vh;
+        position: fixed;
+        top: 20;
+        left: 0;
+        background-color: #f8f9fa;
+        padding-top: 20px;
+        transition: transform 0.3s ease;
+      }
+      
+      /* Hide sidebar initially */
+      #sidebar.hidden {
+        transform: translateX(-100%);
+      }
+
+      /* Content shifts right when sidebar is visible */
+      #content {
+        margin-left: 250px;
+        transition: margin-left 0.3s ease;
+      }
+
+      /* Content takes full width when sidebar is hidden */
+      #sidebar.hidden + #content {
+        margin-left: 0;
+      }
+      .opened {
+        color: rgb(112, 54, 170);
+      }
+    </style>
+  </head>
+  <body>
+  
+    <!-- Toggle Button -->
+    <button class="btn btn-primary m-2" id="toggleButton">Doc</button>
+    <button class="btn btn-outline-dark m-3"><a class="nav-link opened" href="#">Day1</a></button>
+    <button class="btn btn-outline-dark m-3"><a class="nav-link" href="#">Day2</a></button>
+    <button class="btn btn-outline-dark m-3"><a class="nav-link" href="#">Day3</a></button>
+    <button class="btn btn-outline-dark m-3"><a class="nav-link" href="#">Day4</a></button>
+    <button class="btn btn-outline-dark m-3"><a class="nav-link" href="#">Day5</a></button>
+    <button class="btn btn-outline-dark m-3"><a class="nav-link" href="#">Day6</a></button>
+    <button class="btn btn-outline-dark m-3"><a class="nav-link" href="#">Day7</a></button>
+
+    <!-- Sidebar -->
+    <div id="sidebar">
+      <h5 class="px-3">Flask Day1</h5>
+      <ul class="nav flex-column px-3">
+        <li class="nav-item">
+          <a class="nav-link opened" href="/">Flask Setup And Installation</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/p1">First Project</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/reqrescycle">Understanding Request Response Cycle</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div id="content" class="container">
+        <h1>Flask Setup And Installation</h1>
+        <div class="row">
+            <h2>What is Flask?</h2>
+            <div class="col-12">
+                <div>
+                    <p>Flask is a micro web framework written in Python. It is designed to make getting started quick and easy, with no CSS/JS framework.
+                        <ul>
+                            <li>Micro Web Framework</li>
+                            <li>Fast, simple, and extensible to support database etc.</li>
+                            <li>By: Armin Ronacher</li>
+                            <li>Based On: Werkzeug WSGI and Jinja</li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <h2>Requirements</h1>
+                <div>
+                    <p>
+                        <ol>
+                            <li>Python Interpreter: We will use ANACONDA VENV</li>
+                            <li>Code Writer: We will use VS CODE</li>
+                        </ol>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <h2>First Setup</h1>
+                <div>
+                    <p>
+                        <ol>
+                            <li><b>Open AnacondaNavigator --> Environment --> Create New (say hrmvenv)</li></b>
+                            <li>Open an Empty Folder (<b>day1</b>) in vs code and Create a File (<b>app.py</b>)</li>
+                            <li>Activate Virtual Environment (hrmvenv): <b>Select Interpreter --> hrmvenv</b></li>
+
+                            <li>Open Terminal:<b>Ctrl + ~</b></li>
+                            <li>Install Flask by runnning this command: <b>pip install flask</b></li>
+                            <li>Run this command: <b>python app.py</b> after writing content inside <b>app.py</b></li>
+                        </ol>
+                        <md-block>
+                            #### app.py
+                            ```python 
+                            from flask import Flask
+                            app = Flask(__name__)
+
+                            @app.route('/')
+                            def hello():
+                                return 'Hello, World!'
+
+                            app.run()
+                            ```
+                        </md-block>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+      // JavaScript to toggle sidebar visibility
+      const toggleButton = document.getElementById('toggleButton');
+      const sidebar = document.getElementById('sidebar');
+      const content = document.getElementById('content');
+
+      toggleButton.addEventListener('click', () => {
+        sidebar.classList.toggle('hidden');
+      });
+    </script>
+
+    <script type="module" src="https://md-block.verou.me/md-block.js"></script>
+
+  </body>
+</html>
